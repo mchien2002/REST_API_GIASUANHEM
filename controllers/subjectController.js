@@ -12,8 +12,8 @@ const subjectController = {
 
     getAll: async (req, res) => {
         try {
-            const newItem = await Subject.find();
-            res.status(200).json(newItem);
+            const list = await Subject.find();
+            res.status(200).json(list);
         } catch (error) {
             res.status(500).json(error);
         }

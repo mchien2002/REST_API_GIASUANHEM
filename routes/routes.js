@@ -14,6 +14,7 @@ router.get("/class/index", classController.getAll);
 router.get("/subject/index", subjectController.getAll);
 router.get("/account/index", accountController.getAll);
 router.get("/category/index", categorytController.getAll);
+
 // POST
 router.post("/new_class/add", newClassController.add);
 router.post("/post/add", postController.add);
@@ -21,5 +22,4 @@ router.post("/class/add", classController.add);
 router.post("/subject/add", subjectController.add);
 router.post("/account/add", accountController.add);
 router.post("/category/add", categorytController.add);
-
 module.exports = router;
