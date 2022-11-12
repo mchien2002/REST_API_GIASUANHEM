@@ -1,6 +1,6 @@
 const { Post } = require("../models/postModel");
 const postController = {
-    addPost: async (req, res) => {
+    add: async (req, res) => {
         try {
         const newPost = new Post(req.body);
         const savePost = await newPost.save();
@@ -10,7 +10,7 @@ const postController = {
         }
     },
 
-    getAllPost: async (req, res) => {
+    getAll: async (req, res) => {
         try {
             const newPost = await Post.find();
             res.status(200).json(newPost);

@@ -1,6 +1,9 @@
 const mongoose = require("mongoose");
 
 const newClassSchema = new mongoose.Schema({
+    id:{
+        type: Number
+    },
     address: {
         type: String,
     },
