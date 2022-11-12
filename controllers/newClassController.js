@@ -19,7 +19,7 @@ const newClassController = {
         }
     },
 
-    getAll: async(req, res) => {
+    get: async(req, res) => {
         try{
             const newClass = await NewClass.find();
             res.status(200).json(newClass);

@@ -10,7 +10,7 @@ const accountController = {
         }
     },
 
-    getAll: async (req, res) => {
+    get: async (req, res) => {
         try {
             const newItem = await Account.find();
             res.status(200).json(newItem);

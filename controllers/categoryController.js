@@ -11,7 +11,7 @@ const categorytController = {
         }
     },
 
-    getAll: async (req, res) => {
+    get: async (req, res) => {
         try {
             const params = req.query.style ?? null;
             console.log("********PARAMS********");

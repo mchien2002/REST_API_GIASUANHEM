@@ -10,7 +10,7 @@ const classController = {
             res.status(500).json(error);
         }
     },
-    getAll: async (req, res)=>{
+    get: async (req, res)=>{
         try{
             const tempClass = await Class.find();
             res.status(200).json(tempClass);

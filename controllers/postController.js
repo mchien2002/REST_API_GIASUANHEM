@@ -10,7 +10,7 @@ const postController = {
         }
     },
 
-    getAll: async (req, res) => {
+    get: async (req, res) => {
         try {
             const newPost = await Post.find();
             res.status(200).json(newPost);

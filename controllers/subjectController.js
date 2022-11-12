@@ -10,7 +10,7 @@ const subjectController = {
         }
     },
 
-    getAll: async (req, res) => {
+    get: async (req, res) => {
         try {
             const list = await Subject.find();
             res.status(200).json(list);

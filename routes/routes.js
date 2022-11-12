@@ -8,12 +8,12 @@ const subjectController = require("../controllers/subjectController");
 
 
 // GET
-router.get("/new_class/index", newClassController.getAll);
-router.get("/post/index", postController.getAll);
-router.get("/class/index", classController.getAll);
-router.get("/subject/index", subjectController.getAll);
-router.get("/account/index", accountController.getAll);
-router.get("/category/index", categorytController.getAll);
+router.get("/new_class/index", newClassController.get);
+router.get("/post/index", postController.get);
+router.get("/class/index", classController.get);
+router.get("/subject/index", subjectController.get);
+router.get("/account/index", accountController.get);
+router.get("/category/index", categorytController.get);
 
 // POST
 router.post("/new_class/add", newClassController.add);
