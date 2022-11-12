@@ -13,9 +13,13 @@ const categorytController = {
 
     getAll: async (req, res) => {
         try {
-            // if ()
-            const list = await Category.find();
+            const params = req.query.style;
+            console.log(params);
+            const list = await Category.find(({
+                style: params
+            }));
             res.status(200).json(list);
+
         } catch (error) {
             res.status(500).json(error);
         }
