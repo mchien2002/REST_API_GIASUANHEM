@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const newClassSchema = new mongoose.Schema({
-    id:{
+    id: {
         type: Number
     },
     address: {
@@ -29,19 +29,26 @@ const newClassSchema = new mongoose.Schema({
     created_at: {
         type: String,
     },
-    category: {
-        type: [String]
-    },
+    categories: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Category",
+        }
+    ],
     classes:
-    {
-        type: [String]
-    }
-    ,
+        [
+            {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Class",
+            }
+        ],
     subjects:
-    {
-        type: [String]
-    }
-    ,
+    [
+        {
+            type:mongoose.Schema.Types.ObjectId,
+            ref: "Subject",
+        }
+    ],
 });
 
 let NewClass = mongoose.model("NewClass", newClassSchema);

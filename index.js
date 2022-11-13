@@ -7,7 +7,7 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const { response } = require("express");
 const router = require("./routes/routes");
-
+const PORT = 8000
 dotenv.config();
 
 // CONNECT DATABASE 
@@ -20,10 +20,10 @@ app.use(cors());
 app.use(morgan("common"));
 
 // APP ROUTE
-app.use("/giasuanhem/v1", router);
+app.use((process.env.BASE_URL), router);
 
-
-app.listen(8000, () => {
+app.get('/', (req, res) => res.send('Hello World!'));
+app.listen(PORT, () => {
     console.log("#####################################################");
     console.log("Server is running...");
 });
