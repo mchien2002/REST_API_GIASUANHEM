@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const { response } = require("express");
 const router = require("./routes/routes");
-const PORT = 8000
+const PORT = 3000
 var bodyParser = require("body-parser");
 dotenv.config();
 
