@@ -21,7 +21,7 @@ const classController = {
     delete: async(req, res)=>{
         try{
             await Class.findByIdAndDelete(req.query._id);
-            res.status(200).json("Deleted Successfully");
+            res.status(200).json("Deleted Successfully");   
         } catch(error){
             res.status(500).json(error);
         }

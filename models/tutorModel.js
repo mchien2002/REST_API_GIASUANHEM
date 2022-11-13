@@ -11,7 +11,7 @@ const tutorSchema = new mongoose.Schema({
         type: String,
     },
     phone: {
-        type: String
+        type: String    
     },
     school: {
         type: String

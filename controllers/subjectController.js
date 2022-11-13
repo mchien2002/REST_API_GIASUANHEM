@@ -18,6 +18,16 @@ const subjectController = {
             res.status(500).json(error);
         }
     },
+    delete: async(req, res) =>{
+        try{
+            const itemRemove = await Subject.findByIdAndDelete({
+                _id: req.query._id
+            });
+            res.status(200).json("Delete Successfully");
+        } catch(error){
+            res.status(500).json(error);
+        }
+    }
 }
 
 module.exports = subjectController;

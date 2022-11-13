@@ -16,7 +16,9 @@ const LIST_TUTOR = "/tutor/index";
 const TUTOR_CREATE = "/tutor/add";
 const CLASS_REMOVE = "/class/remove";
 const CHECK_LOGIN = "/login";
-
+const NEWCLASS_REMOVE = "/new_class/remove";
+const TUTOR_REMOVE = "/tutor/remove";
+const SUBJECT_REMOVE = "/subject/remove";
 
 module.exports = {
     LIST_NEWCLASSS: LIST_NEWCLASSS,
@@ -36,4 +38,7 @@ module.exports = {
     TUTOR_CREATE,
     CLASS_REMOVE,
     CHECK_LOGIN,
+    NEWCLASS_REMOVE,
+    TUTOR_REMOVE,
+    SUBJECT_REMOVE
 }
