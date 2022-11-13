@@ -1,23 +1,13 @@
-const { Account } = require("../models/accountModel");
-const accountController = {
-    add: async (req, res) => {
-        try {
-        const newItem = new Account(req.body);
-        const saveItem = await newItem.save();
-        res.status(200).json(saveItem);
-        } catch (error) {
-            res.status(500).json(error);
-        }
-    },
+// const { Account } = require("../models/accountModel");
+// const accountController = {
+//     checkLogin: async(req, res)=>{
+//         try{
+//             const params = {};
+//             params.userName = req.query.userName;
+//             params.pass = req.query.password;
+//             const checkItem = await 
+//         }
+//     }
+// }
 
-    get: async (req, res) => {
-        try {
-            const newItem = await Account.find();
-            res.status(200).json(newItem);
-        } catch (error) {
-            res.status(500).json(error);
-        }
-    },
-}
-
-module.exports = accountController;
+// module.exports = accountController;

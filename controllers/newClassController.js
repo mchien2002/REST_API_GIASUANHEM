@@ -25,7 +25,7 @@ const newClassController = {
 
     get: async (req, res) => {
         try {
-            const newClass = await NewClass.find().populate("categories");
+            const newClass = await NewClass.find().populate("classes").populate("categories").populate("subjects");
             res.status(200).json(newClass);
         } catch (error) {
             res.status(500).json(error);

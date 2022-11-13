@@ -14,7 +14,7 @@ router.get(LIST_NEWCLASSS, newClassController.get);
 router.get(LIST_POST, postController.get);
 router.get(LIST_CLASS, classController.get);
 router.get(LIST_SUBJECT, subjectController.get);
-router.get(LIST_ACCOUNT, accountController.get);
+// router.get(LIST_ACCOUNT, accountContr);
 router.get(LIST_CATEGORY, categorytController.get);
 router.get(LIST_TUTOR, tutorController.get);
 
@@ -24,7 +24,7 @@ router.post(NEWCLASS_UPDATE_STATUS, newClassController.updateStatus)
 router.post(POST_CREATE, postController.add);
 router.post(CLASS_CREATE, classController.add);
 router.post(SUBJECT_CREATE, subjectController.add);
-router.post(ACCOUNT_CREATE, accountController.add);
+// router.post(ACCOUNT_CREATE, accountController.add);
 router.post(CATEGORY_CREATE, categorytController.add);
 router.post(TUTOR_CREATE, tutorController.add);
 
