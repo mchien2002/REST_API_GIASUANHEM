@@ -14,6 +14,8 @@ const ACCOUNT_CREATE = "/account/add";
 const CATEGORY_CREATE = "/category/add";
 const LIST_TUTOR = "/tutor/index";
 const TUTOR_CREATE = "/tutor/add";
+const CLASS_REMOVE = "/class/remove";
+const CHECK_LOGIN = "/login";
 
 
 module.exports = {
@@ -32,4 +34,6 @@ module.exports = {
     CATEGORY_CREATE,
     LIST_TUTOR,
     TUTOR_CREATE,
+    CLASS_REMOVE,
+    CHECK_LOGIN,
 }

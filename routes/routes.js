@@ -6,7 +6,7 @@ const newClassController = require("../controllers/newClassController");
 const postController = require("../controllers/postController");
 const subjectController = require("../controllers/subjectController");
 const tutorController = require("../controllers/tutorController");
-const { LIST_ACCOUNT, LIST_NEWCLASSS, LIST_POST, LIST_CLASS, LIST_SUBJECT, LIST_CATEGORY, NEWCLASS_CREATE, NEWCLASS_UPDATE_STATUS, POST_CREATE, CLASS_CREATE, SUBJECT_CREATE, ACCOUNT_CREATE, CATEGORY_CREATE, LIST_TUTOR, TUTOR_CREATE } = require("../service/api_constant");
+const { LIST_ACCOUNT, LIST_NEWCLASSS, LIST_POST, LIST_CLASS, LIST_SUBJECT, LIST_CATEGORY, NEWCLASS_CREATE, NEWCLASS_UPDATE_STATUS, POST_CREATE, CLASS_CREATE, SUBJECT_CREATE, ACCOUNT_CREATE, CATEGORY_CREATE, LIST_TUTOR, TUTOR_CREATE, CLASS_REMOVE, CHECK_LOGIN } = require("../service/api_constant");
 
 
 // GET
@@ -27,6 +27,8 @@ router.post(SUBJECT_CREATE, subjectController.add);
 // router.post(ACCOUNT_CREATE, accountController.add);
 router.post(CATEGORY_CREATE, categorytController.add);
 router.post(TUTOR_CREATE, tutorController.add);
+router.post(CLASS_REMOVE, classController.delete);
+router.post(CHECK_LOGIN, accountController.checkLogin);
 
 
 module.exports = router;
