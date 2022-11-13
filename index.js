@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const { response } = require("express");
 const router = require("./routes/routes");
-// const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 var bodyParser = require("body-parser");
 dotenv.config();
 
@@ -23,6 +23,6 @@ app.use(morgan("common"));
 app.use((process.env.BASE_URL), router);
 
 app.get('/', (req, res) => res.send('Hello World!'));
-app.listen(8000, () => {
+app.listen(process.env.PORT, () => {
     console.log("#########################  SERVER IS RUNNING  #########################");
 });
