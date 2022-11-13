@@ -12,7 +12,7 @@ const tutorController = {
     },
     get: async (req, res) => {
         try {
-            const list = await Tutor.find();
+            const list = await Tutor.find().populate("classes").populate("subjects");
             res.status(200).json(list);
         } catch (error) {
             res.status(500).json(error);
