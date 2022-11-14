@@ -30,6 +30,7 @@ const LIST_SALARYINFO = "/salary_info/index";
 const SALARYINFO_CREATE = "/salary_info/add";
 const SALARYINFO_REMOVE = "/salary_info/remove";
 const SALARYINFO_UPDATE = "/salary_info/update";
+const NEWCLASS_FILTER = "/new_class/filter";
 
 module.exports = {
     LIST_NEWCLASSS,
@@ -64,4 +65,5 @@ module.exports = {
     SALARYINFO_CREATE,
     SALARYINFO_REMOVE,
     SALARYINFO_UPDATE,
+    NEWCLASS_FILTER
 }
