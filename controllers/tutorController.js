@@ -27,6 +27,16 @@ const tutorController = {
         } catch(error){
             res.status(500).json(error);
         }
+    },
+    updateByID: async (req, res) => {
+        try {
+            Tutor.findByIdAndUpdate(req.query._id, { $set: req.body }, function (error, item) {
+                if (error) return next(error);
+                res.status(200).json("Update Successfully")
+            })
+        } catch (error) {
+            res.status(500).json(error);
+        }
     }
 }
 

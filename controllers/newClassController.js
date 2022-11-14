@@ -4,7 +4,7 @@ const { NewClass } = require("../models/newClassModel");
 
 const newClassController = {
     add: async (req, res) => {
-        try {
+        // try {
             // LẤY THẰNG LỚN NHẤT
             NewClass.findOne({}).sort({ id: "desc" }).then(async latestNewClass => {
                 if (latestNewClass) {
@@ -18,9 +18,9 @@ const newClassController = {
                 // CHẠY saveNewClass
                 res.status(200).json(saveNewClass);
             });
-        } catch (error) {
-            res.status(500).json(error);
-        }
+        // } catch (error) {
+        //     res.status(500).json(error);
+        // }
     },
 
     get: async (req, res) => {
@@ -47,13 +47,23 @@ const newClassController = {
         }
     },
 
-    delete: async(req, res) =>{
-        try{
+    delete: async (req, res) => {
+        try {
             const itemRemove = await NewClass.findByIdAndDelete({
                 _id: req.query._id
             });
             res.status(200).json("Delete Successfully");
-        } catch(error){
+        } catch (error) {
+            res.status(500).json(error);
+        }
+    },
+    updateByID: async (req, res) => {
+        try {
+            NewClass.findByIdAndUpdate(req.query._id, { $set: req.body }, function (error, item) {
+                if (error) return next(error);
+                res.status(200).json("Update Successfully")
+            })
+        } catch (error) {
             res.status(500).json(error);
         }
     }

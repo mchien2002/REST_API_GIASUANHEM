@@ -4,7 +4,6 @@ const LIST_CLASS = "/class/index";
 const LIST_SUBJECT = "/subject/index";
 const LIST_ACCOUNT = "/account/index";
 const LIST_CATEGORY = "/category/index";
-
 const NEWCLASS_CREATE = "/new_class/add";
 const NEWCLASS_UPDATE_STATUS = "/new_class/status/update";
 const POST_CREATE = "/post/add";
@@ -20,6 +19,13 @@ const NEWCLASS_REMOVE = "/new_class/remove";
 const TUTOR_REMOVE = "/tutor/remove";
 const SUBJECT_REMOVE = "/subject/remove";
 const CATEGORY_REMOVE = "/category/remove";
+const NEWCLASS_UPDATE = "/new_class/update";
+const CATEGORY_UPDATE = "/category/update";
+const CLASS_UPDATE = "/class/update";
+const SUBJECT_UPDATE = "/subject/update";
+const POST_UPDATE = "/post/update";
+const TUTOR_UPDATE = "/tutor/update";
+const POST_REMOVE = "/post/remove";
 
 module.exports = {
     LIST_NEWCLASSS: LIST_NEWCLASSS,
@@ -42,5 +48,12 @@ module.exports = {
     NEWCLASS_REMOVE,
     TUTOR_REMOVE,
     SUBJECT_REMOVE,
-    CATEGORY_REMOVE
+    CATEGORY_REMOVE,
+    NEWCLASS_UPDATE,
+    CATEGORY_UPDATE,
+    CLASS_UPDATE,
+    SUBJECT_UPDATE,
+    POST_UPDATE,
+    TUTOR_UPDATE,
+    POST_REMOVE
 }

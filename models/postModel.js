@@ -6,6 +6,9 @@ const postSchema = new mongoose.Schema({
     },
     body: {
         type: String,
+    },
+    style: {
+        type: String
     }
 });
 
