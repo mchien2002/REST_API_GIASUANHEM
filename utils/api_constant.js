@@ -26,6 +26,10 @@ const SUBJECT_UPDATE = "/subject/update";
 const POST_UPDATE = "/post/update";
 const TUTOR_UPDATE = "/tutor/update";
 const POST_REMOVE = "/post/remove";
+const LIST_SALARYINFO = "/salary_info/index"
+const SALARYINFO_CREATE = "/salary_info/add"
+const SALARYINFO_REMOVE = "/salary_info/remove"
+const SALARYINFO_UPDATE = "/salary_info/update"
 
 module.exports = {
     LIST_NEWCLASSS: LIST_NEWCLASSS,
@@ -55,5 +59,9 @@ module.exports = {
     SUBJECT_UPDATE,
     POST_UPDATE,
     TUTOR_UPDATE,
-    POST_REMOVE
+    POST_REMOVE,
+    LIST_SALARYINFO,
+    SALARYINFO_CREATE,
+    SALARYINFO_REMOVE,
+    SALARYINFO_UPDATE,
 }
