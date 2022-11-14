@@ -26,14 +26,14 @@ const SUBJECT_UPDATE = "/subject/update";
 const POST_UPDATE = "/post/update";
 const TUTOR_UPDATE = "/tutor/update";
 const POST_REMOVE = "/post/remove";
-const LIST_SALARYINFO = "/salary_info/index"
-const SALARYINFO_CREATE = "/salary_info/add"
-const SALARYINFO_REMOVE = "/salary_info/remove"
-const SALARYINFO_UPDATE = "/salary_info/update"
+const LIST_SALARYINFO = "/salary_info/index";
+const SALARYINFO_CREATE = "/salary_info/add";
+const SALARYINFO_REMOVE = "/salary_info/remove";
+const SALARYINFO_UPDATE = "/salary_info/update";
 
 module.exports = {
-    LIST_NEWCLASSS: LIST_NEWCLASSS,
-    LIST_POST: LIST_POST,
+    LIST_NEWCLASSS,
+    LIST_POST,
     LIST_CLASS,
     LIST_SUBJECT,
     LIST_ACCOUNT,

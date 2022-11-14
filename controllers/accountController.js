@@ -11,7 +11,7 @@ const accountController = {
                 }]
             });
             if (checkItem) {
-                res.status(200).json("Login Successsfully")
+                res.status(200).json("Login Successsfully");
             } else {
                 res.status(500).json("failed");
             }

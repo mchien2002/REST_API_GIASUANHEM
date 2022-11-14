@@ -51,7 +51,7 @@ const newClassSchema = new mongoose.Schema({
     ],
     contact:{
         type: String
-    }
+    },
 },{ versionKey: false });
 
 let NewClass = mongoose.model("NewClass", newClassSchema);

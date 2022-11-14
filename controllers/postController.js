@@ -12,8 +12,15 @@ const postController = {
 
     get: async (req, res) => {
         try {
-            const newPost = await Post.find();
-            res.status(200).json(newPost);
+            if (req.query.style){
+                const listItem = await Post.find({
+                    style: req.query.style,
+                });
+                res.status(200).json(listItem);
+            } else{
+                const listItem = await Post.find();
+                res.status(200).json(listItem);
+            }
         } catch (error) {
             res.status(500).json(error);
         }
@@ -33,11 +40,11 @@ const postController = {
             Post.findByIdAndUpdate(req.query._id, { $set: req.body }, function (error, item) {
                 if (error) return next(error);
                 res.status(200).json("Update Successfully")
-            })
+            });
         } catch (error) {
             res.status(500).json(error);
         }
-    }
+    },
 }
 
 module.exports = postController
