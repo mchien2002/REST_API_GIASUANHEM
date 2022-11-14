@@ -49,6 +49,9 @@ const newClassSchema = new mongoose.Schema({
             ref: "Subject",
         }
     ],
+    contact:{
+        type: String
+    }
 });
 
 let NewClass = mongoose.model("NewClass", newClassSchema);
