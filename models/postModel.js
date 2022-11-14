@@ -8,9 +8,9 @@ const postSchema = new mongoose.Schema({
         type: String,
     },
     style: {
-        type: String
+        type: Number
     }
-});
+},{ versionKey: false });
 
 let Post = mongoose.model("Post", postSchema);
 module.exports = { Post };

@@ -19,7 +19,7 @@ const salaryInfoSchema = new mongoose.Schema({
     fiveSessions: {
         type: Number
     },
-});
+} ,{ versionKey: false });
 
 let SalaryInfo = mongoose.model("SalaryInfo", salaryInfoSchema);
 module.exports = { SalaryInfo };

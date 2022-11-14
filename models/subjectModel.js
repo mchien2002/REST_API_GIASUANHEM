@@ -5,7 +5,7 @@ const subjectSchema = new mongoose.Schema({
         type: String,
         required: true
     }
-});
+}, { versionKey: false });
 
 let Subject = mongoose.model("Subject", subjectSchema);
 module.exports = { Subject };

@@ -13,7 +13,7 @@ const transactionHistorySchema = mongoose.Schema({
     accountNumber: {
         type: String
     }
-})
+} ,{ versionKey: false })
 
 let TransactionHistory = mongoose.model("TransactionHistory", transactionHistorySchema);
 

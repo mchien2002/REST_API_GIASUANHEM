@@ -11,7 +11,7 @@ const tutorSchema = new mongoose.Schema({
         type: String,
     },
     phone: {
-        type: String    
+        type: String
     },
     school: {
         type: String
@@ -57,7 +57,7 @@ const tutorSchema = new mongoose.Schema({
     describe: {
         type: String,
     },
-})
+}, { versionKey: false })
 
 let Tutor = mongoose.model("Tutor", tutorSchema);
 module.exports = { Tutor }

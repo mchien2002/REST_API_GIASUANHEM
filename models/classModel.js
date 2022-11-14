@@ -5,7 +5,7 @@ const classSchema = new mongoose.Schema({
         type: String,
         required: true,
     }
-})
+},{ versionKey: false })
 
 let Class = mongoose.model("Class", classSchema);
 module.exports = { Class };

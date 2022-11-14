@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 
 const accountScheme = new mongoose.Schema({
-    name:{
+    name: {
         type: String,
         required: true,
     },
-    userName:{
+    userName: {
         type: String,
         required: true,
     },
@@ -13,7 +13,8 @@ const accountScheme = new mongoose.Schema({
         type: String,
         required: true,
     }
-});
+}, { versionKey: false }
+);
 
 let Account = mongoose.model("Account", accountScheme);
 module.exports = { Account };
