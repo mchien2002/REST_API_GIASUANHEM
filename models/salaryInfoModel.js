@@ -8,16 +8,16 @@ const salaryInfoSchema = new mongoose.Schema({
         type: Number,
     },
     twoSessions: {
-        type: Number
+        type: String
     },
     threeSessions: {
-        type: Number
+        type: String
     },
     fourSessions: {
-        type: Number
+        type: String
     },
     fiveSessions: {
-        type: Number
+        type: String
     },
 } ,{ versionKey: false });
 
