@@ -1,7 +1,7 @@
 const { SalaryInfo } = require("../models/salaryInfoModel");
 
 const salaryInfoController = {
-    add: async (req, res)=>{
+    add: async (req, res) => {
         try {
             const newItem = new SalaryInfo(req.body);
             const saveItem = await newItem.save();
@@ -9,22 +9,26 @@ const salaryInfoController = {
         } catch (error) {
             res.status(500).json(error);
         }
-    }, 
-    get: async (req, res)=>{
+    },
+    get: async (req, res) => {
         try {
-            const newPost = await SalaryInfo.find();
+            const newPost = await SalaryInfo.find(
+                req.query.style ? {
+                    styleTeacher: req.query.style,
+                } : {}
+            );
             res.status(200).json(newPost);
         } catch (error) {
             res.status(500).json(error);
         }
     },
-    delete: async(req, res) =>{
-        try{
+    delete: async (req, res) => {
+        try {
             const itemRemove = await SalaryInfo.findByIdAndDelete({
                 _id: req.query._id
             });
             res.status(200).json("Delete Successfully");
-        } catch(error){
+        } catch (error) {
             res.status(500).json(error);
         }
     },
