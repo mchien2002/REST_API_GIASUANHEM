@@ -2,9 +2,9 @@ const { Post } = require("../models/postModel");
 const postController = {
     add: async (req, res) => {
         try {
-        const newPost = new Post(req.body);
-        const savePost = await newPost.save();
-        res.status(200).json(savePost);
+            const newPost = new Post(req.body);
+            const savePost = await newPost.save();
+            res.status(200).json(savePost);
         } catch (error) {
             res.status(500).json(error);
         }
@@ -12,26 +12,25 @@ const postController = {
 
     get: async (req, res) => {
         try {
-            if (req.query.style){
-                const listItem = await Post.find({
-                    style: req.query.style,
-                });
-                res.status(200).json(listItem);
-            } else{
-                const listItem = await Post.find();
-                res.status(200).json(listItem);
-            }
+            const listItem = await Post.find({
+                "$and": [
+                    req.query.style ?
+                        { style: req.query.style }
+                        : {}
+                ]
+            });
+            res.status(200).json(lsitItem);
         } catch (error) {
             res.status(500).json(error);
         }
     },
-    delete: async(req, res) =>{
-        try{
+    delete: async (req, res) => {
+        try {
             const itemRemove = await Post.findByIdAndDelete({
                 _id: req.query._id
             });
             res.status(200).json("Delete Successfully");
-        } catch(error){
+        } catch (error) {
             res.status(500).json(error);
         }
     },
