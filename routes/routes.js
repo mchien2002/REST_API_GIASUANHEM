@@ -13,28 +13,28 @@ const { LIST_ACCOUNT, LIST_NEWCLASSS, LIST_POST, LIST_CLASS, LIST_SUBJECT, LIST_
 // NEW CLASS
 router.get(LIST_NEWCLASSS, newClassController.get);
 router.get(NEWCLASS_FILTER, newClassController.filter);
-router.post(NEWCLASS_CREATE, newClassController.add);
+router.post(LIST_NEWCLASSS, newClassController.add);
 router.post(NEWCLASS_UPDATE_STATUS, newClassController.updateStatus)
 router.post(NEWCLASS_REMOVE, newClassController.delete);
 router.post(NEWCLASS_UPDATE, newClassController.updateByID);
 
 // CLASS
 router.get(LIST_CLASS, classController.get);
-router.post(CLASS_CREATE, classController.add);
+router.post(LIST_CLASS, classController.add);
 router.post(CLASS_REMOVE, classController.delete);
 router.post(CLASS_UPDATE, classController.updateByID);
 
 
 // SUBJECT
 router.get(LIST_SUBJECT, subjectController.get);
-router.post(SUBJECT_CREATE, subjectController.add);
+router.post(LIST_SUBJECT, subjectController.add);
 router.post(SUBJECT_REMOVE, subjectController.delete);
 router.post(SUBJECT_UPDATE, subjectController.updateByID);
 
 
 // POST
 router.get(LIST_POST, postController.get);
-router.post(POST_CREATE, postController.add);
+router.post(LIST_POST, postController.add);
 router.post(POST_REMOVE, postController.delete);
 router.post(NEWCLASS_UPDATE, newClassController.updateByID);
 
@@ -47,24 +47,24 @@ router.post(CHECK_LOGIN, accountController.checkLogin);
 
 // TUTOR
 router.get(LIST_TUTOR, tutorController.get);
-router.post(TUTOR_CREATE, tutorController.add);
+router.post(LIST_TUTOR, tutorController.add);
 router.post(TUTOR_REMOVE, tutorController.delete);
 router.post(TUTOR_UPDATE, tutorController.updateByID);
 
 // CATEGORY
-router.post(CATEGORY_CREATE, categorytController.add);
+router.post(LIST_CATEGORY, categorytController.add);
 router.get(LIST_CATEGORY, categorytController.getByStyle);
 router.post(CATEGORY_REMOVE, categorytController.delete);
 router.post(CATEGORY_UPDATE, categorytController.updateByID);
 
 // SALARY INFGO
 router.get(LIST_SALARYINFO, salaryInfoController.get);
-router.post(SALARYINFO_CREATE, salaryInfoController.add);
+router.post(LIST_SALARYINFO, salaryInfoController.add);
 router.post(SALARYINFO_REMOVE, salaryInfoController.delete);
 router.post(SALARYINFO_UPDATE, salaryInfoController.updateByID);
 
 // TRANSACTION
 router.get(LIST_TRANSACTION, transactionHistoryController.get);
-router.post(TRANSACTION_CREATE, transactionHistoryController.add);
+router.post(LIST_TRANSACTION, transactionHistoryController.add);
 
 module.exports = router;
