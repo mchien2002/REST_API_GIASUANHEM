@@ -6,8 +6,9 @@ const newClassController = require("../controllers/newClassController");
 const postController = require("../controllers/postController");
 const salaryInfoController = require("../controllers/salaryInfoController");
 const subjectController = require("../controllers/subjectController");
+const transactionHistoryController = require("../controllers/transactionHistoryController");
 const tutorController = require("../controllers/tutorController");
-const { LIST_ACCOUNT, LIST_NEWCLASSS, LIST_POST, LIST_CLASS, LIST_SUBJECT, LIST_CATEGORY, NEWCLASS_CREATE, NEWCLASS_UPDATE_STATUS, POST_CREATE, CLASS_CREATE, SUBJECT_CREATE, ACCOUNT_CREATE, CATEGORY_CREATE, LIST_TUTOR, TUTOR_CREATE, CLASS_REMOVE, CHECK_LOGIN, NEWCLASS_REMOVE, TUTOR_REMOVE, SUBJECT_REMOVE, CATEGORY_REMOVE, NEWCLASS_UPDATE, CLASS_UPDATE, SUBJECT_UPDATE, POST_REMOVE, TUTOR_UPDATE, CATEGORY_UPDATE, LIST_SALARYINFO, SALARYINFO_CREATE, SALARYINFO_REMOVE, SALARYINFO_UPDATE, NEWCLASS_FILTER } = require("../utils/api_constant");
+const { LIST_ACCOUNT, LIST_NEWCLASSS, LIST_POST, LIST_CLASS, LIST_SUBJECT, LIST_CATEGORY, NEWCLASS_CREATE, NEWCLASS_UPDATE_STATUS, POST_CREATE, CLASS_CREATE, SUBJECT_CREATE, ACCOUNT_CREATE, CATEGORY_CREATE, LIST_TUTOR, TUTOR_CREATE, CLASS_REMOVE, CHECK_LOGIN, NEWCLASS_REMOVE, TUTOR_REMOVE, SUBJECT_REMOVE, CATEGORY_REMOVE, NEWCLASS_UPDATE, CLASS_UPDATE, SUBJECT_UPDATE, POST_REMOVE, TUTOR_UPDATE, CATEGORY_UPDATE, LIST_SALARYINFO, SALARYINFO_CREATE, SALARYINFO_REMOVE, SALARYINFO_UPDATE, NEWCLASS_FILTER, LIST_TRANSACTION, TRANSACTION_CREATE } = require("../utils/api_constant");
 
 // NEW CLASS
 router.get(LIST_NEWCLASSS, newClassController.get);
@@ -61,5 +62,9 @@ router.get(LIST_SALARYINFO, salaryInfoController.get);
 router.post(SALARYINFO_CREATE, salaryInfoController.add);
 router.post(SALARYINFO_REMOVE, salaryInfoController.delete);
 router.post(SALARYINFO_UPDATE, salaryInfoController.updateByID);
+
+// TRANSACTION
+router.get(LIST_TRANSACTION, transactionHistoryController.get);
+router.post(TRANSACTION_CREATE, transactionHistoryController.add);
 
 module.exports = router;
