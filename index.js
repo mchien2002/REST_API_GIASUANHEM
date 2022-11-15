@@ -23,6 +23,6 @@ app.use(morgan("common"));
 app.use((process.env.BASE_URL), router);
 
 app.get('/', (req, res) => res.send('Hello World!'));
-app.listen(process.env.PORT, () => {
+app.listen(3000, () => {
     console.log("#########################  SERVER IS RUNNING  #########################");
 });
