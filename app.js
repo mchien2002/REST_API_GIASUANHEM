@@ -1,8 +1,13 @@
 
+const bodyParser = require("body-parser");
 const express = require("express");
+const cors = require("cors");
+const morgan = require("morgan");
+const mongoose = require("mongoose");
+const app = express();
+
 
 function appInit(PORT, BASE_URL, router) {
-    const app = express();
     app.use(bodyParser.json({ limit: "50mb" }));
     app.use(cors());
     app.use(morgan("common"));
@@ -13,8 +18,10 @@ function appInit(PORT, BASE_URL, router) {
     });
 }
 
-function dbConnectMongoDB(){
-    
+function dbConnectMongoDB(MONGOOSE_URL){
+    mongoose.connect((MONGOOSE_URL), () => {
+    console.log("#########################  CONNECTED MONGODB  #########################");
+})
 }
 
-module.exports = appInit;
+module.exports = {appInit, dbConnectMongoDB};
