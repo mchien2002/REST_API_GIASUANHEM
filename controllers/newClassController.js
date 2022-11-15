@@ -103,7 +103,6 @@ const newClassController = {
         params.disId = req.query.disId;
         params.classId = req.query.classId;
         params.subId = req.query.subId;
-        params.newClassId = req.query._id;
 
         console.log(`disId: ${params.disId}`);
         console.log(`classId: ${params.classId}`);
