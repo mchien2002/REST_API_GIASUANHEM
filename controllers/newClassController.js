@@ -25,10 +25,38 @@ const newClassController = {
     },
 
     get: async (req, res) => {
-        try {
+        const params = {};
+        console.log("********PARAMS********");
+        params.disId = req.query.disId;
+        params.classId = req.query.classId;
+        params.subId = req.query.subId;
+        params.newClassId = req.query._id;
 
-            let listData = await NewClass.find().populate("categories").populate("classes").populate("subjects");
-            res.status(200).json(listData);
+        console.log(`disId: ${params.disId}`);
+        console.log(`classId: ${params.classId}`);
+        console.log(`subId: ${params.subId}`);
+        try {
+            let data = await NewClass.find({
+                "$and": [
+                    params.disId ? {
+                        categories: {
+                            _id: params.disId
+                        }
+                    } : {},
+                    params.classId ? {
+                        classes: {
+                            _id: params.classId
+                        }
+                    } : {},
+                    params.subId ? {
+                        subjects: {
+                            _id: params.subId
+                        }
+                    } : {},
+                ]
+            }).populate("classes").populate("categories").populate("subjects");
+            res.status(200).json(data);
+
         } catch (error) {
             res.status(500).json(error);
         }
@@ -75,31 +103,33 @@ const newClassController = {
         params.disId = req.query.disId;
         params.classId = req.query.classId;
         params.subId = req.query.subId;
-
+        params.newClassId = req.query._id;
 
         console.log(`disId: ${params.disId}`);
         console.log(`classId: ${params.classId}`);
         console.log(`subId: ${params.subId}`);
         try {
-            const listCategory = await Category.findOne({
-                _id: params.disId,
-            });
-            const listClass = await Class.findOne({
-                _id: params.classId,
-            });
-            const listSubject = await Subject.findOne({
-                _id: params.subId,
-            });
-            let data = await NewClass.find(
-                {
-                    "$or": [
-                        { categories: listCategory },
-                        { subjects: listSubject },
-                        { classes: listClass }
-                    ]
-                }
-            ).populate("classes").populate("categories").populate("subjects");
+            let data = await NewClass.find({
+                "$and": [
+                    params.disId ? {
+                        categories: {
+                            _id: params.disId
+                        }
+                    } : {},
+                    params.classId ? {
+                        classes: {
+                            _id: params.classId
+                        }
+                    } : {},
+                    params.subId ? {
+                        subjects: {
+                            _id: params.subId
+                        }
+                    } : {},
+                ]
+            }).populate("classes").populate("categories").populate("subjects");
             res.status(200).json(data);
+
         } catch (error) {
             res.status(500).json(error);
         }
