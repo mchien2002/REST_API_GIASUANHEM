@@ -1,9 +1,6 @@
-const { appInit, dbConnectMongoDB } = require("./app");
-const router = require("./routes/routes");
-const dotenv = require("dotenv");
-const PORT = process.env.PORT || 3000
-dotenv.config();
+const appInit = require("./src/config/app.config")
+const dbConnectMongoDB = require("./src/config/db.config");
 
+appInit();
+dbConnectMongoDB();
 
-appInit(PORT, process.env.BASE_URL, router);
-dbConnectMongoDB(process.env.MONGOOSE_URL); 
