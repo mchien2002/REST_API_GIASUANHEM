@@ -7,13 +7,10 @@ const transactionHistorySchema = mongoose.Schema({
     content: {
         type: String,
     },
-    created_at: {
-        type: String,
-    },
     accountNumber: {
         type: String
     }
-} ,{ versionKey: false })
+} ,{ versionKey: false, timestamps: true })
 
 let TransactionHistory = mongoose.model("TransactionHistory", transactionHistorySchema);
 

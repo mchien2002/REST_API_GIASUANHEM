@@ -26,9 +26,6 @@ const newClassSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
-    created_at: {
-        type: String,
-    },
     categories: [
         {
             type: mongoose.Schema.Types.ObjectId,
@@ -52,7 +49,7 @@ const newClassSchema = new mongoose.Schema({
     contact:{
         type: String
     },
-},{ versionKey: false });
+},{ versionKey: false, timestamps: true });
 
 let NewClass = mongoose.model("NewClass", newClassSchema);
 module.exports = { NewClass };
