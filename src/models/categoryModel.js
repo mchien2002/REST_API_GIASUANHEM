@@ -8,7 +8,7 @@ const categorySchema = new mongoose.Schema({
     style:{
         type: Number,
     }
-}, { versionKey: false })
+}, { versionKey: false, timestamps: true })
 
 let Category = mongoose.model("Category", categorySchema);
 module.exports = { Category };

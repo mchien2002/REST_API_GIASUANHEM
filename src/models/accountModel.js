@@ -13,7 +13,7 @@ const accountScheme = new mongoose.Schema({
         type: String,
         required: true,
     }
-}, { versionKey: false }
+}, { versionKey: false, timestamps: true }
 );
 
 let Account = mongoose.model("Account", accountScheme);

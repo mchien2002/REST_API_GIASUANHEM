@@ -57,7 +57,7 @@ const tutorSchema = new mongoose.Schema({
     describe: {
         type: String,
     },
-}, { versionKey: false })
+}, { versionKey: false, timestamps: true })
 
 let Tutor = mongoose.model("Tutor", tutorSchema);
 module.exports = { Tutor }

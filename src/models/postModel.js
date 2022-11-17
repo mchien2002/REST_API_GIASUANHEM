@@ -10,7 +10,7 @@ const postSchema = new mongoose.Schema({
     style: {
         type: Number
     }
-},{ versionKey: false });
+},{ versionKey: false, timestamps: true });
 
 let Post = mongoose.model("Post", postSchema);
 module.exports = { Post };
