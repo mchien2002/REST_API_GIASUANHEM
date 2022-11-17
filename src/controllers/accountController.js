@@ -1,19 +1,20 @@
+const { compile } = require("morgan");
 const { Account } = require("../models/accountModel");
 const accountController = {
     checkLogin: async (req, res) => {
         try {
-            const params = {};
-            params.userName = req.query.userName;
-            params.pass = req.query.password;
-            const checkItem = await Account.findOne({
-                $and: [{ userName: params.userName }, {
-                    passWord: params.pass
-                }]
-            });
-            if (checkItem) {
-                res.status(200).json("Login Successsfully");
-            } else {
-                res.status(500).json("failed");
+            const accountItem = await Account.findOne({
+                userName: req.body.userName,
+            })
+            if(!accountItem){
+                res.status(404).json("Sai tên đăng nhập");
+            } else{
+                const pass = (req.body.passWord == accountItem.passWord);
+                if (!pass){
+                    status(404).json("Sai mật khẩu");
+                } else{
+                    res.status(500).json("Đăng nhập thành công");
+                }
             }
         } catch (error) {
             res.status(500).json(error);
