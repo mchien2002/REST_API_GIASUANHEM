@@ -1,4 +1,5 @@
 const { SalaryInfo } = require("../models/salaryInfoModel");
+const ApplicationState = require("../models/applicationState")
 
 const salaryInfoController = {
     add: async (req, res) => {
@@ -7,7 +8,7 @@ const salaryInfoController = {
             const saveItem = await newItem.save();
             res.status(200).json(saveItem);
         } catch (error) {
-            res.status(500).json(error);
+            res.status(500).json(new ApplicationState(500, error.message));
         }
     },
     get: async (req, res) => {
@@ -19,7 +20,7 @@ const salaryInfoController = {
             );
             res.status(200).json(newPost);
         } catch (error) {
-            res.status(500).json(error);
+            res.status(500).json(new ApplicationState(500, error.message));
         }
     },
     delete: async (req, res) => {
@@ -27,19 +28,19 @@ const salaryInfoController = {
             const itemRemove = await SalaryInfo.findByIdAndDelete({
                 _id: req.query._id
             });
-            res.status(200).json("Delete Successfully");
+            res.status(200).json(new ApplicationState(200));
         } catch (error) {
-            res.status(500).json(error);
+            res.status(500).json(new ApplicationState(500, error.message));
         }
     },
     updateByID: async (req, res) => {
         try {
             SalaryInfo.findByIdAndUpdate(req.query._id, { $set: req.body }, function (error, item) {
                 if (error) return next(error);
-                res.status(200).json("Update Successfully")
+                res.status(200).json(new ApplicationState(200))
             })
         } catch (error) {
-            res.status(500).json(error);
+            res.status(500).json(new ApplicationState(500, error.message));
         }
     }
 }

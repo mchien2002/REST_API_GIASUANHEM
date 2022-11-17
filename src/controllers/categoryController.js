@@ -1,5 +1,6 @@
 const { Category } = require("../models/categoryModel");
 const { param } = require("../routes/routes");
+const ApplicationState = require("../models/applicationState")
 const categorytController = {
     add: async (req, res) => {
         try {
@@ -7,7 +8,7 @@ const categorytController = {
             const saveItem = await newItem.save();
             res.status(200).json(saveItem);
         } catch (error) {
-            res.status(500).json(error);
+            res.status(500).json(new ApplicationState(500, error.message));
         }
     },
 
@@ -27,7 +28,7 @@ const categorytController = {
             }
 
         } catch (error) {
-            res.status(500).json(error);
+            res.status(500).json(new ApplicationState(500, error.message));
         }
     },
     getAll: async (req, res)=>{
@@ -35,7 +36,7 @@ const categorytController = {
             const newPost = await Category.find();
             res.status(200).json(newPost);
         } catch (error) {
-            res.status(500).json(error);
+            res.status(500).json(new ApplicationState(500, error.message));
         }
     },
     delete: async(req, res) =>{
@@ -43,19 +44,19 @@ const categorytController = {
             const itemRemove = await Tutor.findByIdAndDelete({
                 _id: req.query._id
             });
-            res.status(200).json("Delete Successfully");
+            res.status(200).json(new ApplicationState(200));
         } catch(error){
-            res.status(500).json(error);
+            res.status(500).json(new ApplicationState(500, error.message));
         }
     },
     updateByID: async (req, res) => {
         try {
             Category.findByIdAndUpdate(req.query._id, { $set: req.body }, function (error, item) {
                 if (error) return next(error);
-                res.status(200).json("Update Successfully")
+                res.status(200).json(new ApplicationState(200))
             })
         } catch (error) {
-            res.status(500).json(error);
+            res.status(500).json(new ApplicationState(500, error.message));
         }
     }
 }
