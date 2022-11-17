@@ -2,6 +2,7 @@ const { Class } = require("../models/classModel");
 const { Subject } = require("../models/subjectModel");
 const { NewClass } = require("../models/newClassModel");
 const { Category } = require("../models/categoryModel");
+const ApplicationState = require("../models/applicationState")
 
 const newClassController = {
     add: async (req, res) => {
@@ -20,7 +21,7 @@ const newClassController = {
                 res.status(200).json(saveNewClass);
             });
         } catch (error) {
-            res.status(500).json(error);
+            res.status(500).json(new ApplicationState(500, error.message));
         }
     },
 
@@ -58,7 +59,7 @@ const newClassController = {
             res.status(200).json(data);
 
         } catch (error) {
-            res.status(500).json(error);
+            res.status(500).json(new ApplicationState(500, error.message));
         }
     },
 
@@ -73,7 +74,7 @@ const newClassController = {
             const saveItem = item.save();
             res.status(200).json(saveItem);
         } catch (error) {
-            res.status(500).json(error);
+            res.status(500).json(new ApplicationState(500, error.message));
         }
     },
 
@@ -82,19 +83,19 @@ const newClassController = {
             const itemRemove = await NewClass.findByIdAndDelete({
                 _id: req.query._id
             });
-            res.status(200).json("Delete Successfully");
+            res.status(200).json(new ApplicationState(200));
         } catch (error) {
-            res.status(500).json(error);
+            res.status(500).json(new ApplicationState(500, error.message));
         }
     },
     updateByID: async (req, res) => {
         try {
             NewClass.findByIdAndUpdate(req.query._id, { $set: req.body }, function (error, item) {
                 if (error) return next(error);
-                res.status(200).json("Update Successfully")
+                res.status(200).json(new ApplicationState(200))
             })
         } catch (error) {
-            res.status(500).json(error);
+            res.status(500).json(new ApplicationState(500, error.message));
         }
     },
     filter: async (req, res) => {
@@ -130,7 +131,7 @@ const newClassController = {
             res.status(200).json(data);
 
         } catch (error) {
-            res.status(500).json(error);
+            res.status(500).json(new ApplicationState(500, error.message));
         }
     }
 }

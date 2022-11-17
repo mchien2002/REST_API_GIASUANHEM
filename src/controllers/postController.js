@@ -1,4 +1,6 @@
 const { Post } = require("../models/postModel");
+const ApplicationState = require("../models/applicationState")
+
 const postController = {
     add: async (req, res) => {
         try {
@@ -6,7 +8,7 @@ const postController = {
             const savePost = await newPost.save();
             res.status(200).json(savePost);
         } catch (error) {
-            res.status(500).json(error);
+            res.status(500).json(new ApplicationState(500, error.message));
         }
     },
 
@@ -21,7 +23,7 @@ const postController = {
             });
             res.status(200).json(listItem);
         } catch (error) {
-            res.status(500).json(error);
+            res.status(500).json(new ApplicationState(500, error.message));
         }
     },
     delete: async (req, res) => {
@@ -31,7 +33,7 @@ const postController = {
             });
             res.status(200).json("Delete Successfully");
         } catch (error) {
-            res.status(500).json(error);
+            res.status(500).json(new ApplicationState(500, error.message));
         }
     },
     updateByID: async (req, res) => {
@@ -41,7 +43,7 @@ const postController = {
                 res.status(200).json("Update Successfully")
             });
         } catch (error) {
-            res.status(500).json(error);
+            res.status(500).json(new ApplicationState(500, error.message));
         }
     },
 }
