@@ -8,7 +8,8 @@
     "helmet": "^6.0.0",
     "https": "^1.0.0",
     "mongoose": "^6.0.10",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "winston": "^3.8.2"
   },
   "name": "db_giasuanhem",
   "version": "1.0.0",
