@@ -1,10 +1,7 @@
 const mongoose = require("mongoose");
 
 const subjectSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true
-    }
+    name: { type: String, required: true, default: '' }
 }, { versionKey: false, timestamps: true });
 
 let Subject = mongoose.model("Subject", subjectSchema);

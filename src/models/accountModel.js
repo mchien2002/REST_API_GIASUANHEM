@@ -1,18 +1,9 @@
 const mongoose = require("mongoose");
 
 const accountScheme = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true,
-    },
-    userName: {
-        type: String,
-        required: true,
-    },
-    passWord: {
-        type: String,
-        required: true,
-    }
+    name: { type: String, required: true, default: '', },
+    userName: { type: String, required: true, default: '', },
+    passWord: { type: String, required: true, default: '', }
 }, { versionKey: false, timestamps: true }
 );
 

@@ -2,9 +2,9 @@ const { Schema } = require("mongoose");
 
 class ApplicationState {
     constructor() {
-        this.status;
-        this.code;
-        this.message;
+        this.status = 0;
+        this.code = '';
+        this.message = '';
     }
 
     getStatus(status, message) {
