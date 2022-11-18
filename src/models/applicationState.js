@@ -1,7 +1,13 @@
 const { Schema } = require("mongoose");
 
 class ApplicationState {
-    constructor(status, message) {
+    constructor() {
+        this.status;
+        this.code;
+        this.message;
+    }
+
+    getStatus(status, message) {
         this.status = status;
         switch (this.status) {
             case 100 - 199:
@@ -25,6 +31,7 @@ class ApplicationState {
                 this.message = message ?? "Lỗi máy chủ";
                 break;
         }
+        return this;
     }
 }
 
