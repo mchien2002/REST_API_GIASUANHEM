@@ -18,12 +18,14 @@ const appInit = () => {
     app.use(morgan("common"));
     app.use((req, res, next) => {
         console.log("------------REQUEST------------");
+        console.log("url: ", req.url);
         console.log("body: ", req.body);
         console.log("params: ", req.params);
         console.log("query: ", req.query);
         console.log("------------RESPONSE------------");
+        console.log("url: ", req.url);
         let oldSend = res.send;
-        res.send = function(data){
+        res.send = function (data) {
             console.log("body: ", data);
             oldSend.apply(res, arguments);
         }
