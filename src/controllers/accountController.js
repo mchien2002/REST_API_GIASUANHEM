@@ -9,13 +9,15 @@ class AccountController extends BaseController {
     }
     checkLogin() {
         return async (req, res) => {
+            this.params.username = req.query.userName;
+            this.params.password = req.query.password;
             try {
                 const accountItem = await Account.findOne({
-                    userName: req.body.userName,
+                    userName: this.params.username,
                 })
                 if (!accountItem) {
                     res.status(404).json(this.appStatus.getStatus(404, "Sai tên tài khoản"));
-                } else if (req.body.passWord == accountItem.passWord) {
+                } else if (this.params.password == accountItem.passWord) {
                     res.status(200).json(this.appStatus.getStatus(200));
                 } else {
                     res.status(404).json(this.appStatus.getStatus(404, "Sai mật khẩu"));
