@@ -63,6 +63,22 @@ class NewwClassController extends BaseController {
             }
         }
     }
+    addData() {
+        return async (req, res) => {
+            NewClass.findOne({}).sort({ id: "desc" }).then(async latestNewClass => {
+                if (latestNewClass) {
+                    req.body.id = latestNewClass.id + 1;
+                } else {
+                    req.body.id = 1;
+                }
+                const newItem = await NewClass.create(req.body);
+                res.status(200).json(this.appStatus.getStatus(200));
+            }).catch(error => {
+                res.status(500).json(this.appStatus.getStatus(500, error.message));
+            })
+        }
+    }
 }
 
-module.exports = NewwClassController;;
+module.exports = NewwClassController;
+
