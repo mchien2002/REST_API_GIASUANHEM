@@ -28,7 +28,9 @@ class SubjectController extends BaseController {
             });
             await Subject.findByIdAndDelete(req.query._id).then(() => {
                 res.status(200).json(this.appStatus.getStatus(200));
-            })
+            }).catch((error) => {
+                res.status(500).json(this.appStatus.getStatus(500, error.message));
+            });
         }
     }
 }
