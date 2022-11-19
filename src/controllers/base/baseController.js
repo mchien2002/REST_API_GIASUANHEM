@@ -1,20 +1,27 @@
 const { get } = require("https");
 const ApplicationState = require("../../models/applicationState");
+const { NewClass } = require("../../models/newClassModel");
 
 class BaseController {
     constructor(model) {
         this.model = model;
         this.appStatus = new ApplicationState();
         this.params = {};
+        this.page;
+        this.PAGE_SIZE;
     }
     getData() {
         return async (req, res) => {
-            try {
-                const listItem = await this.model.find();
-                res.status(200).json(listItem);
-            } catch (error) {
-                res.status(500).json(this.appStatus.getStatus(500, error.message));
-            }
+            this.getPPS(req);
+            await this.model.find()
+                .skip((this.page - 1) * this.PAGE_SIZE)
+                .limit(this.PAGE_SIZE)
+                .then(data => {
+                    res.status(200).json(data)
+                })
+                .catch(error => {
+                    res.status(500).json(this.appStatus.getStatus(500, error.message));
+                });
         }
     }
     addData() {
@@ -48,6 +55,10 @@ class BaseController {
                 res.status(500).json(this.appStatus.getStatus(500, error.message));
             }
         }
+    }
+    getPPS(req) {
+        this.page = parseInt(req.query.page);
+        this.PAGE_SIZE = parseInt(req.query.PAGE_SIZE);
     }
 }
 module.exports = BaseController;
