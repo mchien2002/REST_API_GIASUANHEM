@@ -1,15 +1,15 @@
 const router = require("express").Router();
-const categoryController = require("../test/category_controller");
-const newClassController = require("../test/newclass_controller");
-const postController = require("../test/post_controller");
-const salaryInfoController = require("../test/salaryinfo_controller");
-const subjectController = require("../test/subject_controller");
-const transactionHistoryController = require("../test/transaction_controller");
-const tutorController = require("../test/tutor_controller");
-
+const categoryController = require("../controller/category_controller");
+const newClassController = require("../controller/newclass_controller");
+const postController = require("../controller/post_controller");
+const salaryInfoController = require("../controller/salaryinfo_controller");
+const subjectController = require("../controller/subject_controller");
+const transactionHistoryController = require("../controller/transaction_controller");
+const tutorController = require("../controller/tutor_controller");
+const verifyTokenController = require('../controller/middlewares/verifyTokenController');
 const routes = require('../utils/apiConstant');
-const accountController = require('../test/account_controller');
-const classController = require('../test/class_controller');
+const accountController = require('../controller/account_controller');
+const classController = require('../controller/class_controller');
 
 
 // NEW CLASS
@@ -42,7 +42,7 @@ router.post(routes.POST_UPDATE, postController.updateByID);
 
 // ACCOUNT
 router.post(routes.CHECK_LOGIN, accountController.checkLogin);
-
+router.get(routes.GETALL_ADMIN, verifyTokenController.verifyToken, accountController.getAminAcc);
 
 // TUTOR
 router.get(routes.LIST_TUTOR, tutorController.find);
