@@ -1,6 +1,6 @@
 const { Subject } = require("../models/subjectModel");
 const BaseController = require("./base/baseController");
-const { LIST_SUBJECT, SUBJECT_REMOVE, SUBJECT_UPDATE } = require("../utils/api_constant");
+const { LIST_SUBJECT, SUBJECT_REMOVE, SUBJECT_UPDATE } = require("../utils/apiConstant");
 const { NewClass } = require("../models/newClassModel");
 const { Tutor } = require("../models/tutorModel");
 

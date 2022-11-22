@@ -1,6 +1,6 @@
 const { SalaryInfo } = require("../models/salaryInfoModel");
 const BaseController = require("./base/baseController");
-const { LIST_SALARYINFO, SALARYINFO_REMOVE, SALARYINFO_UPDATE } = require("../utils/api_constant");
+const { LIST_SALARYINFO, SALARYINFO_REMOVE, SALARYINFO_UPDATE } = require("../utils/apiConstant");
 
 class SalaryInfoController extends BaseController {
     constructor() {

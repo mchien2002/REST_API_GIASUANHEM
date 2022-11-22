@@ -3,7 +3,7 @@ const { Subject } = require("../models/subjectModel");
 const { NewClass } = require("../models/newClassModel");
 const { Category } = require("../models/categoryModel");
 const BaseController = require("./base/baseController");
-const { LIST_NEWCLASSS, NEWCLASS_REMOVE, NEWCLASS_UPDATE, NEWCLASS_UPDATE_STATUS } = require("../utils/api_constant");
+const { LIST_NEWCLASSS, NEWCLASS_REMOVE, NEWCLASS_UPDATE, NEWCLASS_UPDATE_STATUS } = require("../utils/apiConstant");
 
 class NewwClassController extends BaseController {
     constructor() {

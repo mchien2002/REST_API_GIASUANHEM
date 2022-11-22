@@ -1,5 +1,5 @@
-const { Account } = require("../models/accountModel");
-const { CHECK_LOGIN } = require("../utils/api_constant");
+const { account: Account } = require("../models/accountModel");
+const { CHECK_LOGIN } = require("../utils/apiConstant");
 const BaseController = require("./base/baseController");
 
 class AccountController extends BaseController {

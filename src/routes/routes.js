@@ -1,77 +1,70 @@
 const router = require("express").Router();
-const AccountController = require("../controllers/accountController");
-const CategoryController = require("../controllers/categoryController");
-const ClassController = require("../controllers/classController");
-const NewClassController = require("../controllers/newClassController");
-const PostController = require("../controllers/postController");
-const SalaryInfoController = require("../controllers/salaryInfoController");
-const SubjectController = require("../controllers/subjectController");
-const TransactionHistoryController = require("../controllers/transactionHistoryController");
-const TutorContoller = require("../controllers/tutorController");
+const categoryController = require("../test/category_controller");
+const newClassController = require("../test/newclass_controller");
+const postController = require("../test/post_controller");
+const salaryInfoController = require("../test/salaryinfo_controller");
+const subjectController = require("../test/subject_controller");
+const transactionHistoryController = require("../test/transaction_controller");
+const tutorController = require("../test/tutor_controller");
+
+const routes = require('../utils/apiConstant');
+const accountController = require('../test/account_controller');
+const classController = require('../test/class_controller');
 
 
 // NEW CLASS
-const newClassController = new NewClassController();
-router.get(newClassController.LIST_NEWCLASS, newClassController.getData());
-router.post(newClassController.LIST_NEWCLASS, newClassController.addData());
-router.post(newClassController.NEWCLASS_UPDATE_STATE, newClassController.updateStatus());
-router.post(newClassController.NEWCLASS_REMOVE, newClassController.deleteByID());
-router.post(newClassController.NEWCLASS_UPDATE, newClassController.updateByID());
+router.get(routes.LIST_NEWCLASS, newClassController.find);
+router.post(routes.LIST_NEWCLASS, newClassController.create);
+router.post(routes.NEWCLASS_UPDATE_STATUS, newClassController.updateStatus);
+router.post(routes.NEWCLASS_REMOVE, newClassController.deleteByID);
+router.post(routes.NEWCLASS_UPDATE, newClassController.updateByID);
 
 // CLASS
-const classController = new ClassController();
-router.get(classController.LIST_CLASS, classController.getData());
-router.post(classController.LIST_CLASS, classController.addData());
-router.post(classController.CLASS_REMOVE, classController.deleteByID());
-router.post(classController.CLASS_UPDATE, classController.updateByID());
+router.get(routes.LIST_CLASS, classController.find);
+router.post(routes.LIST_CLASS, classController.create);
+router.post(routes.CLASS_REMOVE, classController.deleteByID);
+router.post(routes.CLASS_UPDATE, classController.updateByID);
 
 
 // SUBJECT
-const subjectController = new SubjectController();
-router.get(subjectController.LIST_SUBJECT, subjectController.getData());
-router.post(subjectController.LIST_SUBJECT, subjectController.addData());
-router.post(subjectController.SUBJECT_REMOVE, subjectController.deleteByID());
-router.post(subjectController.SUBJECT_UPDATE, subjectController.updateByID());
+router.get(routes.LIST_SUBJECT, subjectController.find);
+router.post(routes.LIST_SUBJECT, subjectController.create);
+router.post(routes.SUBJECT_REMOVE, subjectController.deleteByID);
+router.post(routes.SUBJECT_UPDATE, subjectController.updateByID);
 
 
 // POST
-const postController = new PostController();
-router.get(postController.LIST_POST, postController.getData());
-router.post(postController.LIST_POST, postController.addData());
-router.post(postController.POST_REMOVE, postController.deleteByID());
-router.post(postController.POST_UPDATE, postController.updateByID());
+router.get(routes.LIST_POST, postController.find);
+router.post(routes.LIST_POST, postController.create);
+router.post(routes.POST_REMOVE, postController.deleteByID);
+router.post(routes.POST_UPDATE, postController.updateByID);
 
 
 // ACCOUNT
-const accountController = new AccountController();
-router.post(accountController.CHECK_LOGIN, accountController.checkLogin());
+router.post(routes.CHECK_LOGIN, accountController.checkLogin);
 
 
 // TUTOR
-const tutorController = new TutorContoller()
-router.get(tutorController.LIST_TUTOR, tutorController.getData());
-router.post(tutorController.LIST_TUTOR, tutorController.addData());
-router.post(tutorController.TUTOR_REMOVE, tutorController.deleteByID());
-router.post(tutorController.TUTOR_UPDATE, tutorController.updateByID());
+router.get(routes.LIST_TUTOR, tutorController.find);
+router.post(routes.LIST_TUTOR, tutorController.create);
+router.post(routes.TUTOR_REMOVE, tutorController.deleteByID);
+router.post(routes.TUTOR_UPDATE, tutorController.updateByID);
 
 // CATEGORY
-const categoryController = new CategoryController();
-router.get(categoryController.LIST_CATEGORY, categoryController.getData());
-router.post(categoryController.LIST_CATEGORY, categoryController.addData());
-router.post(categoryController.CATEGORY_REMOVE, categoryController.deleteByID());
-router.post(categoryController.CATEGORY_UPDATE, categoryController.updateByID());
+router.get(routes.LIST_CATEGORY, categoryController.find);
+router.post(routes.LIST_CATEGORY, categoryController.create);
+router.post(routes.CATEGORY_REMOVE, categoryController.deleteByID);
+router.post(routes.CATEGORY_UPDATE, categoryController.updateByID);
 
 // SALARY INFGO
-const salaryInfoController = new SalaryInfoController;
-router.get(salaryInfoController.LIST_SALARYINFO, salaryInfoController.getData());
-router.post(salaryInfoController.LIST_SALARYINFO, salaryInfoController.addData());
-router.post(salaryInfoController.SALARYINFO_REMOVE, salaryInfoController.deleteByID());
-router.post(salaryInfoController.SALARYINFO_UPDATE, salaryInfoController.updateByID());
+router.get(routes.LIST_SALARYINFO, salaryInfoController.find);
+router.post(routes.LIST_SALARYINFO, salaryInfoController.create);
+router.post(routes.SALARYINFO_REMOVE, salaryInfoController.deleteByID);
+router.post(routes.SALARYINFO_UPDATE, salaryInfoController.updateByID);
 
 // TRANSACTION
-const transactionHistoryController = new TransactionHistoryController();
-router.get(transactionHistoryController.LIST_TRANSACTION, transactionHistoryController.getData());
-router.post(transactionHistoryController.LIST_TRANSACTION, transactionHistoryController.addData());
+router.get(routes.LIST_TRANSACTION, transactionHistoryController.find);
+router.post(routes.LIST_TRANSACTION, transactionHistoryController.create);
 
 module.exports = router;
 

@@ -1,5 +1,5 @@
 const BaseController = require("./base/baseController");
-const { LIST_CLASS, CLASS_REMOVE, CLASS_UPDATE } = require("../utils/api_constant");
+const { LIST_CLASS, CLASS_REMOVE, CLASS_UPDATE } = require("../utils/apiConstant");
 const { Class } = require("../models/classModel");
 const { NewClass } = require("../models/newClassModel");
 const { Tutor } = require("../models/tutorModel");

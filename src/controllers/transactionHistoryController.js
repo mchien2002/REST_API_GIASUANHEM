@@ -1,6 +1,6 @@
 const { TransactionHistory } = require("../models/transactionHistoryModel")
 const BaseController = require("./base/baseController");
-const { LIST_TRANSACTION } = require("../utils/api_constant");
+const { LIST_TRANSACTION } = require("../utils/apiConstant");
 
 class TransactionHistoryController extends BaseController{
     constructor(){

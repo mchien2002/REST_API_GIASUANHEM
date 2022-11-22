@@ -1,6 +1,6 @@
 const { Tutor } = require("../models/tutorModel");
 const BaseController = require("./base/baseController");
-const { LIST_TUTOR, TUTOR_UPDATE, TUTOR_REMOVE } = require("../utils/api_constant");
+const { LIST_TUTOR, TUTOR_UPDATE, TUTOR_REMOVE } = require("../utils/apiConstant");
 
 class TutorContoller extends BaseController {
     constructor() {

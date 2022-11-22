@@ -34,7 +34,7 @@ const appInit = () => {
     app.use(BASE_URL, router);
     app.get('/', (req, res) => res.send('WELCOME TO GIASUANHEM!'));
     app.listen((PORT), () => {
-        console.log("#########################  SERVER IS RUNNING  #########################");
+        console.log("######  SERVER IS RUNNING  ######");
     });
 }
 

@@ -1,7 +1,7 @@
 const { Post } = require("../models/postModel");
 const ApplicationState = require("../models/applicationState");
 const BaseController = require("./base/baseController");
-const { LIST_POST, POST_REMOVE, POST_UPDATE } = require("../utils/api_constant");
+const { LIST_POST, POST_REMOVE, POST_UPDATE } = require("../utils/apiConstant");
 
 class PostController extends BaseController {
     constructor() {

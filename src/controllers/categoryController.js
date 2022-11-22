@@ -1,6 +1,6 @@
 const { Category } = require("../models/categoryModel");
 const BaseController = require("../controllers/base/baseController");
-const { LIST_CATEGORY, CATEGORY_REMOVE, CATEGORY_UPDATE } = require("../utils/api_constant");
+const { LIST_CATEGORY, CATEGORY_REMOVE, CATEGORY_UPDATE } = require("../utils/apiConstant");
 const { NewClass } = require("../models/newClassModel");
 const { Tutor } = require("../models/tutorModel");
 
