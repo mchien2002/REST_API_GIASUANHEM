@@ -11,8 +11,6 @@ const classController = module.exports = {
             PAGE_SIZE: parseInt(req.query.PAGE_SIZE),
         }
         const dataCache = await client.get("classes")
-            .skip((params.page - 1) * params.PAGE_SIZE)
-            .limit(params.PAGE_SIZE);
         if (dataCache) {
             return res.status(200).json(JSON.parse(dataCache));
         }
