@@ -1,5 +1,6 @@
 const router = require("../routes/routes");
 const express = require("express");
+const {dbFB} = require('./firebase');
 const app = express();
 const logger = require('./logger.config');
 const helmet = require("helmet")
@@ -34,7 +35,7 @@ const appInit = () => {
     app.use(BASE_URL, router);
     app.get('/', (req, res) => res.send('WELCOME TO GIASUANHEM!'));
     app.listen((PORT), () => {
-        console.log("#########################  SERVER IS RUNNING  #########################");
+        console.log("######  SERVER IS RUNNING  ######");
     });
 }
 
