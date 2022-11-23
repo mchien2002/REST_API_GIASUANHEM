@@ -19,7 +19,7 @@ const classController = module.exports = {
             .limit(params.PAGE_SIZE)
             .then(async (data) => {
                 await client.set("classes", JSON.stringify(data));
-                return res.status(200).json(data)
+                return res.status(200).json(data);
             })
             .catch(error => {
                 console.log(error.message);
