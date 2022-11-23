@@ -2,6 +2,7 @@ const { parse } = require("dotenv");
 const { Class } = require("../models/classModel");
 const { NewClass } = require("../models/newClassModel");
 const { Tutor } = require("../models/tutorModel");
+const client = require('../controller/redis_controller');
 
 const classController = module.exports = {
     find: async (req, res) => {
@@ -9,7 +10,7 @@ const classController = module.exports = {
             page: parseInt(req.query.page),
             PAGE_SIZE: parseInt(req.query.PAGE_SIZE),
         }
-        const dataCache = await client.get("classes")
+        const dataCache = await client.get("classes");
         if (dataCache) {
             return res.status(200).json(JSON.parse(dataCache));
         }
