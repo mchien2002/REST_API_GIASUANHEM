@@ -2,6 +2,7 @@ const { parse } = require("dotenv");
 const { Class } = require("../models/classModel");
 const { NewClass } = require("../models/newClassModel");
 const { Tutor } = require("../models/tutorModel");
+const client = require("./redis_controller");
 
 const classController = module.exports = {
     find: async (req, res) => {
@@ -9,24 +10,22 @@ const classController = module.exports = {
             page: parseInt(req.query.page),
             PAGE_SIZE: parseInt(req.query.PAGE_SIZE),
         }
-        const reply = await redis_controller.GET_ASYNC('classes')
+        const dataCache = await client.get("classes")
             .skip((params.page - 1) * params.PAGE_SIZE)
             .limit(params.PAGE_SIZE);
-        if (reply) {
-            console.log("USE CACHE");
-            res.status(200).json(JSON.parse(reply));
+        if (dataCache) {
+            return res.status(200).json(JSON.parse(dataCache));
         }
         await Class.find()
             .skip((params.page - 1) * params.PAGE_SIZE)
             .limit(params.PAGE_SIZE)
             .then(async (data) => {
-                await redis_controller.SET_ASYNC('classes', JSON.parse(data));
-                console.log("USE DATA");
-                res.status(200).json(data)
+                await client.set("classes", JSON.stringify(data));
+                return res.status(200).json(data)
             })
             .catch(error => {
                 console.log(error.message);
-                res.status(500).json({
+                return res.status(500).json({
                     status: 500,
                     message: "Some thing went wrong!",
                 })

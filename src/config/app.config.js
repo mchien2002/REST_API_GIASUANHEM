@@ -1,6 +1,6 @@
 const router = require("../routes/routes");
 const express = require("express");
-const {dbFB} = require('./firebase');
+const { dbFB } = require('./firebase');
 const app = express();
 const logger = require('./logger.config');
 const helmet = require("helmet")
@@ -11,12 +11,9 @@ const dotenv = require("dotenv");
 dotenv.config();
 const PORT = process.env.PORT || 3000;
 const BASE_URL = process.env.BASE_URL;
-const responseTime = require('response-time');
 const appInit = () => {
     // app.use(helmet());
-
     app.use(bodyParser.json({ limit: "50mb" }));
-    app.use(responseTime)
     app.use(cors());
     app.use(morgan("common"));
     app.use((req, res, next) => {
