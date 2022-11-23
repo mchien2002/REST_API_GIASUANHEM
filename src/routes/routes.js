@@ -57,6 +57,7 @@ router.post(tutorController.TUTOR_UPDATE, tutorController.updateByID());
 // CATEGORY
 const categoryController = new CategoryController();
 router.get(categoryController.LIST_CATEGORY, categoryController.getData());
+router.get(categoryController.CATEGORY_BY_ID, categoryController.findByID());
 router.post(categoryController.LIST_CATEGORY, categoryController.addData());
 router.post(categoryController.CATEGORY_REMOVE, categoryController.deleteByID());
 router.post(categoryController.CATEGORY_UPDATE, categoryController.updateByID());

@@ -24,8 +24,10 @@ const SALARYINFO_REMOVE = "/salary_info/remove";
 const SALARYINFO_UPDATE = "/salary_info/edit";
 const NEWCLASS_FILTER = "/new_class/filter";
 const LIST_TRANSACTION = "/transaction/index";
+const CATEGORY_BY_ID = "/category/id";
 
 module.exports = {
+    CATEGORY_BY_ID,
     LIST_NEWCLASSS,
     LIST_POST,
     LIST_CLASS,
