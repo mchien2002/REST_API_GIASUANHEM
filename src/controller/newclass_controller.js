@@ -1,5 +1,4 @@
 const { NewClass } = require("../models/newClassModel");
-const redis_controller = require("./redis_controller");
 
 const newClassController = module.exports = {
     find: async (req, res) => {
