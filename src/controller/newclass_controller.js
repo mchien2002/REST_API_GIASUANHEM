@@ -1,4 +1,5 @@
-const { NewClass } = require("../models/newClassModel")
+const { NewClass } = require("../models/newClassModel");
+const redis_controller = require("./redis_controller");
 
 const newClassController = module.exports = {
     find: async (req, res) => {
@@ -9,6 +10,7 @@ const newClassController = module.exports = {
             page: parseInt(req.query.page),
             PAGE_SIZE: parseInt(req.query.PAGE_SIZE)
         }
+
         await NewClass.find({
             "$and": [
                 params.disId ? { categories: { _id: params.disId } } : {},
@@ -19,7 +21,10 @@ const newClassController = module.exports = {
             .populate("classes").populate("subjects").populate("categories")
             .skip((params.page - 1) * params.PAGE_SIZE)
             .limit(params.PAGE_SIZE)
-            .then((data) => { res.status(200).json(data) })
+            .then((data) => {
+
+                res.status(200).json(data)
+            })
             .catch((error) => {
                 console.log(error.message);
                 res.status(500).json({

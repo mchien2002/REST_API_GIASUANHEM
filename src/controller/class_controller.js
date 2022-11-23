@@ -9,10 +9,21 @@ const classController = module.exports = {
             page: parseInt(req.query.page),
             PAGE_SIZE: parseInt(req.query.PAGE_SIZE),
         }
+        const reply = await redis_controller.GET_ASYNC('classes')
+            .skip((params.page - 1) * params.PAGE_SIZE)
+            .limit(params.PAGE_SIZE);
+        if (reply) {
+            console.log("USE CACHE");
+            res.status(200).json(JSON.parse(reply));
+        }
         await Class.find()
             .skip((params.page - 1) * params.PAGE_SIZE)
             .limit(params.PAGE_SIZE)
-            .then(data => { res.status(200).json(data) })
+            .then(async (data) => {
+                await redis_controller.SET_ASYNC('classes', JSON.parse(data));
+                console.log("USE DATA");
+                res.status(200).json(data)
+            })
             .catch(error => {
                 console.log(error.message);
                 res.status(500).json({
