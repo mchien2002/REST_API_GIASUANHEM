@@ -52,6 +52,7 @@ router.post(routes.TUTOR_UPDATE, verifyTokenController.verifyToken, tutorControl
 
 // CATEGORY
 router.get(routes.LIST_CATEGORY, categoryController.find);
+router.get(routes.CATEGORY_BY_ID, categoryController.findByID);
 router.post(routes.LIST_CATEGORY, verifyTokenController.verifyToken, categoryController.create);
 router.post(routes.CATEGORY_REMOVE, verifyTokenController.verifyToken, categoryController.deleteByID);
 router.post(routes.CATEGORY_UPDATE, verifyTokenController.verifyToken, categoryController.updateByID);
