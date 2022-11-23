@@ -64,12 +64,15 @@ const tutorController = module.exports = {
             });
     },
     findByID: async (req, res) => {
-        await Tutor.findById(req.query._id).then((data) => { res.status(200).json(data) }).catch((error) => {
-            res.status(500).json({
-                status: 500,
-                message: "Some thing went wrong!",
-            })
-        });
+        await Tutor.findById(req.query._id)
+            .populate("classes").populate("subjects")
+            .then((data) => { res.status(200).json(data) })
+            .catch((error) => {
+                res.status(500).json({
+                    status: 500,
+                    message: "Some thing went wrong!",
+                })
+            });
     },
     updateByID: async (req, res) => {
         await Tutor.findByIdAndUpdate(req.query._id, { $set: req.body })
