@@ -46,6 +46,7 @@ router.get(routes.GET_ADMIN, verifyTokenController.verifyToken, accountControlle
 
 // TUTOR
 router.get(routes.LIST_TUTOR, tutorController.find);
+router.get(routes.TUTOR_BY_ID, tutorController.findByID);
 router.post(routes.LIST_TUTOR, verifyTokenController.verifyToken, tutorController.create);
 router.post(routes.TUTOR_REMOVE, verifyTokenController.verifyToken, tutorController.deleteByID);
 router.post(routes.TUTOR_UPDATE, verifyTokenController.verifyToken, tutorController.updateByID);
