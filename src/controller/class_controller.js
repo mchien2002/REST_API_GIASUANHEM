@@ -10,10 +10,10 @@ const classController = module.exports = {
             page: parseInt(req.query.page),
             PAGE_SIZE: parseInt(req.query.PAGE_SIZE),
         }
-        const dataCache = await client.get("classes");
-        if (dataCache) {
-            return res.status(200).json(JSON.parse(dataCache));
-        }
+        // const dataCache = await client.get("classes");
+        // if (dataCache) {
+        //     return res.status(200).json(JSON.parse(dataCache));
+        // }
         await Class.find()
             .skip((params.page - 1) * params.PAGE_SIZE)
             .limit(params.PAGE_SIZE)
