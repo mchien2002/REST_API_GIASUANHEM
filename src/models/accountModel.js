@@ -5,6 +5,7 @@ const accountScheme = new mongoose.Schema({
     userName: { type: String, required: true, default: '', },
     passWord: { type: String, required: true, default: '', },
     accessToken: { type: String, default: '' },
+    refreshToken: { type: String, default: '' },
 }, { versionKey: false, timestamps: true }
 );
 

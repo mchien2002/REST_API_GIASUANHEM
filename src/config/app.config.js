@@ -1,5 +1,6 @@
 const router = require("../routes/routes");
 const express = require("express");
+const {dbFB} = require('./firebase');
 const app = express();
 const logger = require('./logger.config');
 const helmet = require("helmet")

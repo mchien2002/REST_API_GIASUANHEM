@@ -1,6 +1,9 @@
 const { Account } = require("../models/accountModel");
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const dotenv = require("dotenv");
+dotenv.config();
+
 const accountController = module.exports = {
     // find: async (req, res) => {
     //     await Account.find()
@@ -30,12 +33,15 @@ const accountController = module.exports = {
             else {
                 const validPassword = await bcrypt.compare(params.password, acc.passWord);
                 if (validPassword) {
-                    acc.accessToken = jwt.sign(
-                        { id: acc._id, },
-                        "giasuanhem",
-                        { expiresIn: "1h" }
-                    );
-                    const { passWord, ...others } = acc._doc;
+                    accountController.generateAccessToken(acc);
+                    accountController.generateRefreshToken(acc);
+                    res.cookie("refreshToken", acc.refreshToken, {
+                        httpOnly: true,
+                        secure: false,
+                        path: "/",
+                        sameSite: "strict",
+                    });
+                    const { passWord, refreshToken, ...others } = acc._doc;
                     res.status(200).json(others);
                 } else {
                     res.status(404).json({ message: "Password Wrong!" });
@@ -50,6 +56,29 @@ const accountController = module.exports = {
             console.log(error.message);
             res.status(500).json(error.message)
         });
-    }
+    },
+    generateAccessToken: (acc) => {
+        acc.accessToken = jwt.sign(
+            { id: acc._id, },
+            process.env.SECRET_KEY_JWT,
+            { expiresIn: "45m" }
+        );
+    },
+    generateRefreshToken: (acc) => {
+        acc.refreshToken = jwt.sign(
+            { id: acc._id, },
+            process.env.SECRET_REFRESH_KEY_JWT,
+            { expiresIn: "365d" }
+        );
+    },
+    // requestRefreshToken: async (req,res)=>{
+    //     const refreshhToken = req.cookie.refreshToken;
+    //     if(!refreshhToken) return res.status(401).json("You're not authenticated"),
+    //     jwt.verify(refreshhToken, process.env.SECRET_REFRESH_KEY_JWT, (error, user) =>{
+    //         if (error){
+    //             console.log(error);
+    //         }
+    //     })
+    // }
 }
 
