@@ -15,10 +15,12 @@ class CategoryController extends BaseController {
     getData() {
         return async (req, res) => {
             this.params.style = req.query.style;
+            this.params._id = req.query._id;
             try {
-                const item = await Category.find(this.params.style ? {
-                    style: this.params.style,
-                } : {});
+                const item = await Category.find(
+                    this.params.style ? { style: this.params.style, } : {},
+                    this.params._id ? { _id: this.params._id } : {},
+                );
                 res.status(200).json(item);
             } catch (error) {
                 res.status(500).json(this.appStatus.getStatus(500, error.message));
@@ -38,7 +40,7 @@ class CategoryController extends BaseController {
                 res.status(200).json(this.appStatus.getStatus(200));
             }).catch((error) => {
                 res.status(500).json(this.appStatus.getStatus(500, error.message));
-            }); 
+            });
         }
     }
 }
