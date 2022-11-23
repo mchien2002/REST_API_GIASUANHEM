@@ -61,7 +61,7 @@ const accountController = module.exports = {
         acc.accessToken = jwt.sign(
             { id: acc._id, },
             process.env.SECRET_KEY_JWT,
-            { expiresIn: "45m" }
+            { expiresIn: "45d" }
         );
     },
     generateRefreshToken: (acc) => {
