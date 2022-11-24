@@ -10,20 +10,11 @@ const classController = module.exports = {
             page: parseInt(req.query.page),
             PAGE_SIZE: parseInt(req.query.PAGE_SIZE),
         }
-        // const dataCache = await client.get("classes");
-        // if (dataCache) {
-        //     return res.status(200).json(JSON.parse(dataCache));
-        // }
         await Class.find()
             .skip((params.page - 1) * params.PAGE_SIZE)
             .limit(params.PAGE_SIZE)
             .then(async (data) => {
-<<<<<<< HEAD
-                await client.set("classes", JSON.stringify(data));
-                return res.status(200).json(data);
-=======
                 return res.status(200).json(data)
->>>>>>> main
             })
             .catch(error => {
                 console.log(error.message);
