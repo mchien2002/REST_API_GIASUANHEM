@@ -22,6 +22,7 @@ const appInit = () => {
         console.log("body: ", req.body);
         console.log("params: ", req.params);
         console.log("query: ", req.query);
+        console.log("headers: ", req.headers);
         console.log("------------RESPONSE------------");
         console.log("url: ", req.url);
         let oldSend = res.send;

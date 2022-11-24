@@ -42,16 +42,18 @@ router.post(routes.POST_UPDATE, verifyTokenController.verifyToken, postControlle
 
 // ACCOUNT
 router.post(routes.CHECK_LOGIN, accountController.checkLogin);
-router.get(routes.GETALL_ADMIN, verifyTokenController.verifyToken, accountController.getAminAcc);
+router.get(routes.GET_ADMIN, verifyTokenController.verifyToken, accountController.getAminAcc);
 
 // TUTOR
 router.get(routes.LIST_TUTOR, tutorController.find);
+router.get(routes.TUTOR_BY_ID, tutorController.findByID);
 router.post(routes.LIST_TUTOR, verifyTokenController.verifyToken, tutorController.create);
 router.post(routes.TUTOR_REMOVE, verifyTokenController.verifyToken, tutorController.deleteByID);
 router.post(routes.TUTOR_UPDATE, verifyTokenController.verifyToken, tutorController.updateByID);
 
 // CATEGORY
 router.get(routes.LIST_CATEGORY, categoryController.find);
+router.get(routes.CATEGORY_BY_ID, categoryController.findByID);
 router.post(routes.LIST_CATEGORY, verifyTokenController.verifyToken, categoryController.create);
 router.post(routes.CATEGORY_REMOVE, verifyTokenController.verifyToken, categoryController.deleteByID);
 router.post(routes.CATEGORY_UPDATE, verifyTokenController.verifyToken, categoryController.updateByID);

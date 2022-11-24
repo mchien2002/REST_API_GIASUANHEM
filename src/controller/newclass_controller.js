@@ -1,10 +1,9 @@
 const { NewClass } = require("../models/newClassModel");
-const redis_controller = require("./redis_controller");
 
 const newClassController = module.exports = {
     find: async (req, res) => {
         params = {
-            disId: req.query.disId,
+            ctgId: req.query.ctgId,
             classId: req.query.classId,
             subId: req.query.subId,
             page: parseInt(req.query.page),
@@ -13,7 +12,7 @@ const newClassController = module.exports = {
 
         await NewClass.find({
             "$and": [
-                params.disId ? { categories: { _id: params.disId } } : {},
+                params.ctgId ? { categories: { _id: params.ctgId } } : {},
                 params.classId ? { classes: { _id: params.classId } } : {},
                 params.subId ? { subjects: { _id: params.subId } } : {},
             ]
