@@ -14,6 +14,7 @@ const classController = require('../controller/class_controller');
 
 // NEW CLASS
 router.get(routes.LIST_NEWCLASS, newClassController.find);
+router.get(routes.NEW_CLASS_BY_ID, newClassController.findByID);
 router.post(routes.LIST_NEWCLASS, verifyTokenController.verifyToken, newClassController.create);
 router.post(routes.NEWCLASS_UPDATE_STATUS, newClassController.updateStatus);
 router.post(routes.NEWCLASS_REMOVE, verifyTokenController.verifyToken, newClassController.deleteByID);
@@ -21,6 +22,7 @@ router.post(routes.NEWCLASS_UPDATE, verifyTokenController.verifyToken, newClassC
 
 // CLASS
 router.get(routes.LIST_CLASS, classController.find);
+router.get(routes.CLASS_BY_ID, classController.findByID);
 router.post(routes.LIST_CLASS, verifyTokenController.verifyToken, classController.create);
 router.post(routes.CLASS_REMOVE, verifyTokenController.verifyToken, classController.deleteByID);
 router.post(routes.CLASS_UPDATE, verifyTokenController.verifyToken, classController.updateByID);
@@ -28,6 +30,7 @@ router.post(routes.CLASS_UPDATE, verifyTokenController.verifyToken, classControl
 
 // SUBJECT
 router.get(routes.LIST_SUBJECT, subjectController.find);
+router.get(routes.SUBJECT_BY_ID, subjectController.findByID);
 router.post(routes.LIST_SUBJECT, verifyTokenController.verifyToken, subjectController.create);
 router.post(routes.SUBJECT_REMOVE, verifyTokenController.verifyToken, verifyTokenController.verifyToken, subjectController.deleteByID);
 router.post(routes.SUBJECT_UPDATE, verifyTokenController.verifyToken, subjectController.updateByID);
@@ -35,6 +38,7 @@ router.post(routes.SUBJECT_UPDATE, verifyTokenController.verifyToken, subjectCon
 
 // POST
 router.get(routes.LIST_POST, postController.find);
+router.get(routes.POST_BY_ID, postController.findByID);
 router.post(routes.LIST_POST, verifyTokenController.verifyToken, postController.create);
 router.post(routes.POST_REMOVE, verifyTokenController.verifyToken, postController.deleteByID);
 router.post(routes.POST_UPDATE, verifyTokenController.verifyToken, postController.updateByID);
@@ -60,6 +64,7 @@ router.post(routes.CATEGORY_UPDATE, verifyTokenController.verifyToken, categoryC
 
 // SALARY INFGO
 router.get(routes.LIST_SALARYINFO, salaryInfoController.find);
+router.get(routes.SALARY_BY_ID, salaryInfoController.findByID);
 router.post(routes.LIST_SALARYINFO, verifyTokenController.verifyToken, salaryInfoController.create);
 router.post(routes.SALARYINFO_REMOVE, verifyTokenController.verifyToken, salaryInfoController.deleteByID);
 router.post(routes.SALARYINFO_UPDATE, verifyTokenController.verifyToken, salaryInfoController.updateByID);

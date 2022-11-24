@@ -99,5 +99,17 @@ const newClassController = module.exports = {
                     message: "Some thing went wrong!",
                 })
             });
+    },
+    findByID: async (req, res) => {
+        await NewClass.findById(req.query._id)
+            .populate("classes").populate("subjects").populate("categories")
+            .then((data) => { res.status(200).json(data) })
+            .catch((error) => {
+                console.log(error.message);
+                res.status(500).json({
+                    status: 500,
+                    message: "Some thing went wrong!",
+                })
+            });
     }
 }

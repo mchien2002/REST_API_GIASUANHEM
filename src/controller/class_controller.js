@@ -82,5 +82,16 @@ const classController = module.exports = {
                     message: "Some thing went wrong!",
                 })
             })
+    },
+    findByID: async (req, res) => {
+        await Class.findById(req.query._id)
+            .then((data) => { res.status(200).json(data) })
+            .catch((error) => {
+                console.log(error.message);
+                res.status(500).json({
+                    status: 500,
+                    message: "Some thing went wrong!",
+                })
+            });
     }
 }
