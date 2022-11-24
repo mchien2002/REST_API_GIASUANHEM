@@ -2,7 +2,6 @@ const { parse } = require("dotenv");
 const { Class } = require("../models/classModel");
 const { NewClass } = require("../models/newClassModel");
 const { Tutor } = require("../models/tutorModel");
-const client = require('../controller/redis_controller');
 
 const classController = module.exports = {
     find: async (req, res) => {
