@@ -4,7 +4,7 @@ const newClassController = require("../controller/newclass_controller");
 const postController = require("../controller/post_controller");
 const salaryInfoController = require("../controller/salaryinfo_controller");
 const subjectController = require("../controller/subject_controller");
-const transactionHistoryController = require("../controller/transaction_controller");
+const transactionController = require("../controller/transaction_controller");
 const tutorController = require("../controller/tutor_controller");
 const verifyTokenController = require('../controller/middlewares/verifyTokenController');
 const routes = require('../utils/apiConstant');
@@ -34,7 +34,6 @@ router.get(routes.SUBJECT_BY_ID, subjectController.findByID);
 router.post(routes.LIST_SUBJECT, verifyTokenController.verifyToken, subjectController.create);
 router.post(routes.SUBJECT_REMOVE, verifyTokenController.verifyToken, verifyTokenController.verifyToken, subjectController.deleteByID);
 router.post(routes.SUBJECT_UPDATE, verifyTokenController.verifyToken, subjectController.updateByID);
-
 
 // POST
 router.get(routes.LIST_POST, postController.find);
@@ -70,8 +69,8 @@ router.post(routes.SALARYINFO_REMOVE, verifyTokenController.verifyToken, salaryI
 router.post(routes.SALARYINFO_UPDATE, verifyTokenController.verifyToken, salaryInfoController.updateByID);
 
 // TRANSACTION
-router.get(routes.LIST_TRANSACTION, transactionHistoryController.find);
-router.post(routes.LIST_TRANSACTION, verifyTokenController.verifyToken, transactionHistoryController.create);
+router.get(routes.LIST_TRANSACTION, transactionController.find);
+router.post(routes.LIST_TRANSACTION, verifyTokenController.verifyToken, transactionController.create);
 
 module.exports = router;
 
